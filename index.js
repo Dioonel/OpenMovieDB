@@ -1,16 +1,7 @@
-const key = `a201b035`;
-//const url = `http://www.omdbapi.com/?t=${title}&plot=full&apikey=${key}`;
-
+const KEY = `a201b035`;                                                  // public API key
 const input = document.getElementById("input");
 const button = document.getElementById("button");
 
-
-let search = () => {
-    let movieName = input.value;
-    const url = `http://www.omdbapi.com/?t=${movieName}&plot=full&apikey=${key}`;
-    request();
-    executeRequest(url);
-}
 
 async function request(url){
     const response = await fetch(url);
@@ -18,11 +9,12 @@ async function request(url){
     return data;
 }
 
-async function executeRequest(urlXD){
-    console.log(await request(urlXD));
+async function executeRequest(){
+    let movieName = input.value;
+    const url = `http://www.omdbapi.com/?t=${movieName}&plot=full&apikey=${KEY}`;
+    console.log(await request(url));
 }
 
-//execute();
 
 
 
